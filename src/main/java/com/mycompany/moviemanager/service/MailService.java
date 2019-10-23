@@ -66,6 +66,7 @@ public class MailService {
             log.debug("Sent email to User '{}'", to);
         } catch (Exception e) {
             if (log.isDebugEnabled()) {
+                log.warn("",e);
                 log.warn("Email could not be sent to user '{}'", to, e);
             } else {
                 log.warn("Email could not be sent to user '{}': {}", to, e.getMessage());

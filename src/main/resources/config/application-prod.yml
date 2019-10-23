@@ -36,10 +36,10 @@ spring:
       uri: mongodb://localhost:27017
       database: moviemanager
   mail:
-    host: localhost
-    port: 25
-    username:
-    password:
+    host: smtp.mailtrap.io
+    port: 2525
+    username: 07c87891ea2850
+    password: f02d604396fef5
   thymeleaf:
     cache: true
 

@@ -36,14 +36,14 @@ spring:
       indent-output: true
   data:
     mongodb:
-      # uri: mongodb://localhost:27017
-      uri: mongodb+srv://root:adminadmin@cluster0-wai51.mongodb.net/test?retryWrites=true&w=majority
+      uri: mongodb://localhost:27017
+      # uri: mongodb+srv://root:adminadmin@cluster0-wai51.mongodb.net/test?retryWrites=true&w=majority
       database: moviemanager
   mail:
-    host: localhost
-    port: 25
-    username:
-    password:
+    host: smtp.mailtrap.io
+    port: 2525
+    username: 07c87891ea2850
+    password: f02d604396fef5
   messages:
     cache-duration: PT1S # 1 second, see the ISO 8601 standard
   thymeleaf:
@@ -76,12 +76,8 @@ jhipster:
         token-validity-in-seconds: 86400
         token-validity-in-seconds-for-remember-me: 2592000
   mail: # specific JHipster mail property, for standard properties see MailProperties
-    # from: moviemanager@localhost
-    # base-url: http://127.0.0.1:8080
-    host: smtp.mailtrap.io
-    port: 2525
-    username: 07c87891ea2850
-    password: f02d604396fef5
+    from: moviemanager@localhost
+    base-url: http://127.0.0.1:8080
   metrics:
     logs: # Reports metrics in the logs
       enabled: false

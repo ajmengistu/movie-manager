@@ -1,7 +1,8 @@
 version: '2'
 services:
   moviemanager-mongodb:
-    image: mongo:4.0.10
+    # image: mongo:
+    image: mongo:latest
     ports:
       - '27017:27017'
     # volumes:
