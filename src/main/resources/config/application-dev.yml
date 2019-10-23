@@ -76,8 +76,12 @@ jhipster:
         token-validity-in-seconds: 86400
         token-validity-in-seconds-for-remember-me: 2592000
   mail: # specific JHipster mail property, for standard properties see MailProperties
-    from: moviemanager@localhost
-    base-url: http://127.0.0.1:8080
+    # from: moviemanager@localhost
+    # base-url: http://127.0.0.1:8080
+    host: smtp.mailtrap.io
+    port: 2525
+    username: 07c87891ea2850
+    password: f02d604396fef5
   metrics:
     logs: # Reports metrics in the logs
       enabled: false
