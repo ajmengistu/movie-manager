@@ -1,0 +1,37 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.mycompany.moviemanager"
+    },
+    "jhipsterVersion": "6.1.2",
+    "applicationType": "monolith",
+    "baseName": "moviemanager",
+    "packageName": "com.mycompany.moviemanager",
+    "packageFolder": "com/mycompany/moviemanager",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "mongodb",
+    "devDatabaseType": "mongodb",
+    "prodDatabaseType": "mongodb",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NzlkNzhmMjhmMmFkMjcyMGYxZjMzYTg2N2U1MzUwYzIwZDY2NjZjMjRlMjg5ZGVmZjhmODdhNjUzYzRmYmIwODllMjViODk2NmU3Y2E1NGYzMmY0Y2Y3MTkxNzkxMDZlNzdlNTEzMDc2N2NkZGVjMmU2ZTUwN2EyMmJjM2UyNzE=",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false
+  }
+}
