@@ -6,4 +6,12 @@ services:
     ports:
       - '27017:27017'
     # volumes:
-    #     - ~/volumes/jhipster/moviemanager/mongodb/:/data/db/
+    # - ~/volumes/jhipster/moviemanager/mongodb/:/data/db/
+# docker run --name moviemanager-mongodb -v ~/volumes/jhipster/moviemanager/mongodb/:/data/db/ -p 27017:27017
+# docker system prune --volumes
+# create NEW container: docker run -p 27017:27017 --name moviemanager-mongodb -v /moviemanager/mongodb/:/data/db/ mongo
+# start container: docker run moviemanager-mongodb
+# docker container ls // running
+# docker container ls -a // running & stopped
+# docker exec -it moviemanager-mongodb shell
+# mongo -> use moviemanager -> show collections -> db.collection.find().prettiy()
