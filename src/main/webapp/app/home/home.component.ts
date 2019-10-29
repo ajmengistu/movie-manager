@@ -96,8 +96,8 @@ export class HomeComponent implements OnInit {
       this.account = account;
     });
     this.registerAuthenticationSuccess();
-    this.moviesService.getPopularMovies().subscribe(movies => {
-      this.popularMovies = movies;
+    this.moviesService.getPopularMovies().subscribe(result => {
+      this.popularMovies = result.results;
       console.log(this.popularMovies);
     });
   }

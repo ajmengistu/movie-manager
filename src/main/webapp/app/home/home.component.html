@@ -45,63 +45,22 @@
         <mat-grid-list [(rowHeight)]="rowHeight" [(cols)]="cols"
             [(gutterSize)]="gutterSize">
             <button mat-button (click)="openSideNav()" class="filter-button">Filter</button>
-            <mat-grid-tile>
-                <mat-card class="example-card">
-                    <img mat-card-image
-                        src="https://image.tmdb.org/t/p/original/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg"
-                        alt="Photo of a Shiba Inu">
-                </mat-card>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <mat-card class="example-card">
-                    <img mat-card-image
-                        src="https://image.tmdb.org/t/p/original/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg"
-                        alt="Photo of a Shiba Inu">
-                </mat-card>
-                <mat-grid-tile-footer>
-                    <button mat-button matTooltipPosition="above"
-                        matTooltip="Info about the action"><mat-icon>add</mat-icon></button>
-                    <button mat-button matTooltipPosition="above"
-                        matTooltip="Info about the action"><mat-icon>check</mat-icon></button>
-                    <button mat-button (click)="openDialog()"><mat-icon>play_circle_outline</mat-icon></button>
-                </mat-grid-tile-footer>
-            </mat-grid-tile>
-            <mat-grid-tile>
-                <mat-card class="example-card">
-                    <img mat-card-image
-                        src="https://image.tmdb.org/t/p/original/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg"
-                        alt="Photo of a Shiba Inu">
-                </mat-card>
-                <mat-grid-tile-footer>
-                    <button mat-button>LIKE</button>
-                    <button mat-button>SHARE</button>
-                </mat-grid-tile-footer>
-            </mat-grid-tile>
-            <mat-grid-tile>3</mat-grid-tile>
-            <mat-grid-tile>4</mat-grid-tile>
-            <mat-grid-tile>
-            </mat-grid-tile>
-            <mat-grid-tile>2</mat-grid-tile>
-            <mat-grid-tile>3</mat-grid-tile>
-            <mat-grid-tile>4</mat-grid-tile>
-            <mat-grid-tile>1</mat-grid-tile>
-            <mat-grid-tile>2</mat-grid-tile>
-            <mat-grid-tile>3</mat-grid-tile>
-            <mat-grid-tile>4</mat-grid-tile>
-            <mat-grid-tile>1</mat-grid-tile>
-            <mat-grid-tile>2</mat-grid-tile>
-            <mat-grid-tile>3</mat-grid-tile>
-            <mat-grid-tile>4</mat-grid-tile>
-            <mat-grid-tile>1</mat-grid-tile>
-            <mat-grid-tile>2</mat-grid-tile>
-            <mat-grid-tile>3</mat-grid-tile>
-            <mat-grid-tile>4</mat-grid-tile>
-            <mat-grid-tile>1</mat-grid-tile>
-            <mat-grid-tile>2</mat-grid-tile>
-            <mat-grid-tile>3</mat-grid-tile>
-            <mat-grid-tile>
-
-            </mat-grid-tile>
+            <div *ngFor="let movie of popularMovies">
+                <mat-grid-tile>
+                    <mat-card class="example-card">
+                        <img mat-card-image
+                            src="https://image.tmdb.org/t/p/original/{{movie.poster_path}}"
+                            alt="">
+                    </mat-card>
+                    <mat-grid-tile-footer>
+                        <button mat-button matTooltipPosition="above"
+                            matTooltip="Info about the action"><mat-icon>add</mat-icon></button>
+                        <button mat-button matTooltipPosition="above"
+                            matTooltip="Info about the action"><mat-icon>check</mat-icon></button>
+                        <button mat-button (click)="openDialog()"><mat-icon>play_circle_outline</mat-icon></button>
+                    </mat-grid-tile-footer>
+                </mat-grid-tile>
+            </div>
         </mat-grid-list>
     </mat-sidenav-content>
 </mat-sidenav-container>
