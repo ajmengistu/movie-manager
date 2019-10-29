@@ -1,41 +1,107 @@
-<div class="row">
-    <div class="col-md-3">
-        <span class="hipster img-fluid rounded"></span>
-    </div>
-    <div class="col-md-9">
-        <h1 class="display-4">Welcome, Java Hipster!</h1>
-        <p class="lead">This is your homepage</p>
+<mat-sidenav-container [(hasBackdrop)]="hasBackdrop">
+	<mat-sidenav [(opened)]="opened" [(mode)]="mode">
+		<button mat-button (click)="closeSideNav()" class="filter-button" >Done</button>
+		<h3>Released In</h3>
+		Starting Year:
+		<mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1" min="1" max="10"></mat-slider>
+		Ending Year:
+		<mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1" min="1" max="10"></mat-slider>
+		<h3>Score</h3>
+		<mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1" min="1" max="10"></mat-slider>
+		<h3>Genre</h3>
+		<mat-selection-list #shoes>
+			<mat-list-option>
+				Adventure
+			</mat-list-option>
+			<mat-list-option>
+				Adventure
+			</mat-list-option>
+			<mat-list-option>
+				Adventure
+			</mat-list-option>
+			<mat-list-option>
+				Adventure
+			</mat-list-option>
+			<mat-list-option>
+				Adventure
+			</mat-list-option>
+			<mat-list-option>
+				Adventure
+			</mat-list-option>
+			<mat-list-option>
+				Adventure
+			</mat-list-option>
+		</mat-selection-list>
 
-        <div [ngSwitch]="isAuthenticated()">
-            <div class="alert alert-success" *ngSwitchCase="true">
-                <span id="home-logged-message" *ngIf="account"
-                   > You are logged in as user "{{account.login}}". </span>
-            </div>
+		<p>
+			Genres selected: {{shoes.selectedOptions.selected.length}}
+		</p>
+		<!-- <button mat-raised-button color="primary">Filter</button> -->
+	</mat-sidenav>
+	<mat-sidenav-content>
+		<mat-grid-list [(rowHeight)]="rowHeight" [(cols)]="cols" [(gutterSize)]="gutterSize">
+			<button mat-button (click)="openSideNav()" class="filter-button" >Filter</button>
 
-            <div class="alert alert-warning" *ngSwitchCase="false">
-                <span>If you want to </span>
-                <a class="alert-link" (click)="login()">sign in</a><span>, you can try the default accounts:<br/>- Administrator (login="admin" and password="admin") <br/>- User (login="user" and password="user").</span>
-            </div>
-            <div class="alert alert-warning" *ngSwitchCase="false">
-                <span>You don't have an account yet?</span>&nbsp;
-                <a class="alert-link" routerLink="register">Register a new account</a>
-            </div>
-        </div>
+			<mat-grid-tile>
+				<mat-card class="example-card">
+					<img mat-card-image
+                        src="https://image.tmdb.org/t/p/original/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg"
+                        alt="Photo of a Shiba Inu">
+                </mat-card>
+			</mat-grid-tile>
+			<mat-grid-tile>
+				<mat-card class="example-card">
+					<img mat-card-image
+                        src="https://image.tmdb.org/t/p/original/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg"
+                        alt="Photo of a Shiba Inu">
+                </mat-card>
+					<mat-grid-tile-footer>
+						<button mat-button matTooltipPosition="above"
+                        matTooltip="Info about the action"><mat-icon>add</mat-icon></button>
+						<button mat-button matTooltipPosition="above"
+                    matTooltip="Info about the action"><mat-icon>check</mat-icon></button>
+						<button mat-button (click)="openDialog()"><mat-icon>play_circle_outline</mat-icon></button>
+            <mat-dialog-content>
+              hello
+            </mat-dialog-content>
+					</mat-grid-tile-footer>
+			</mat-grid-tile>
+			<mat-grid-tile>
+				<mat-card class="example-card">
+					<img mat-card-image
+                        src="https://image.tmdb.org/t/p/original/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg"
+                        alt="Photo of a Shiba Inu">
+                </mat-card>
+					<mat-grid-tile-footer>
+						<button mat-button>LIKE</button>
+						<button mat-button>SHARE</button>
+					</mat-grid-tile-footer>
+			</mat-grid-tile>
+			<mat-grid-tile>3</mat-grid-tile>
+			<mat-grid-tile>4</mat-grid-tile>
+			<mat-grid-tile>
+			</mat-grid-tile>
+			<mat-grid-tile>2</mat-grid-tile>
+			<mat-grid-tile>3</mat-grid-tile>
+			<mat-grid-tile>4</mat-grid-tile>
+			<mat-grid-tile>1</mat-grid-tile>
+			<mat-grid-tile>2</mat-grid-tile>
+			<mat-grid-tile>3</mat-grid-tile>
+			<mat-grid-tile>4</mat-grid-tile>
+			<mat-grid-tile>1</mat-grid-tile>
+			<mat-grid-tile>2</mat-grid-tile>
+			<mat-grid-tile>3</mat-grid-tile>
+			<mat-grid-tile>4</mat-grid-tile>
+			<mat-grid-tile>1</mat-grid-tile>
+			<mat-grid-tile>2</mat-grid-tile>
+			<mat-grid-tile>3</mat-grid-tile>
+			<mat-grid-tile>4</mat-grid-tile>
+			<mat-grid-tile>1</mat-grid-tile>
+			<mat-grid-tile>2</mat-grid-tile>
+			<mat-grid-tile>3</mat-grid-tile>
+			<mat-grid-tile>
 
-        <p>
-            If you have any question on JHipster:
-        </p>
-
-        <ul>
-            <li><a href="https://www.jhipster.tech/" target="_blank" rel="noopener">JHipster homepage</a></li>
-            <li><a href="http://stackoverflow.com/tags/jhipster/info" target="_blank" rel="noopener">JHipster on Stack Overflow</a></li>
-            <li><a href="https://github.com/jhipster/generator-jhipster/issues?state=open" target="_blank" rel="noopener">JHipster bug tracker</a></li>
-            <li><a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" rel="noopener">JHipster public chat room</a></li>
-            <li><a href="https://twitter.com/java_hipster" target="_blank" rel="noopener">follow @java_hipster on Twitter</a></li>
-        </ul>
-
-        <p>
-            <span>If you like JHipster, don't forget to give us a star on</span> <a href="https://github.com/jhipster/generator-jhipster" target="_blank" rel="noopener">GitHub</a>!
-        </p>
-    </div>
-</div>
+			</mat-grid-tile>
+		</mat-grid-list>
+	</mat-sidenav-content>
+</mat-sidenav-container>

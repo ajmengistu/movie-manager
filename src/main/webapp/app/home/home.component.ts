@@ -3,6 +3,7 @@ import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
 
 import { LoginModalService, AccountService, Account } from 'app/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'jhi-home',
@@ -12,13 +13,67 @@ import { LoginModalService, AccountService, Account } from 'app/core';
 export class HomeComponent implements OnInit {
   account: Account;
   modalRef: NgbModalRef;
+  rowHeight = '1.5:2';
+  cols = 8;
+  opened = true;
+  gutterSize = 9;
+  hasBackdrop = false;
+  mode = 'side';
 
   constructor(
     private accountService: AccountService,
     private loginModalService: LoginModalService,
-    private eventManager: JhiEventManager
-  ) {}
-
+    private eventManager: JhiEventManager,
+    breakpointObserver: BreakpointObserver
+  ) {
+    breakpointObserver
+      .observe([Breakpoints.XSmall, Breakpoints.Small, Breakpoints.Medium, Breakpoints.Large, Breakpoints.XLarge])
+      .subscribe(result => {
+        if (result.breakpoints[Breakpoints.XSmall]) {
+          this.cols = 1;
+          this.opened = false;
+          this.rowHeight = '2:1';
+          this.mode = 'side';
+        }
+        if (result.breakpoints[Breakpoints.Small]) {
+          this.cols = 2;
+          this.opened = true;
+          this.rowHeight = '1.5:2';
+          this.mode = 'side';
+          this.hasBackdrop = false;
+        }
+        if (result.breakpoints[Breakpoints.Medium]) {
+          this.cols = 3;
+          this.opened = true;
+          this.rowHeight = '1.5:2';
+          this.mode = 'side';
+          this.hasBackdrop = false;
+        }
+        if (result.breakpoints[Breakpoints.Large]) {
+          this.cols = 6;
+          this.opened = true;
+          this.rowHeight = '1.5:2';
+          this.mode = 'side';
+          this.hasBackdrop = false;
+        }
+        if (result.breakpoints[Breakpoints.XLarge]) {
+          this.cols = 8;
+          this.opened = true;
+          this.rowHeight = '1.5:2';
+          this.hasBackdrop = false;
+        }
+      });
+  }
+  openSideNav() {
+    this.hasBackdrop = true;
+    this.opened = true;
+    this.mode = 'over';
+  }
+  closeSideNav() {
+    this.mode = 'side';
+    this.hasBackdrop = false;
+    this.opened = false;
+  }
   ngOnInit() {
     this.accountService.identity().then((account: Account) => {
       this.account = account;
