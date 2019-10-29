@@ -6,6 +6,9 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { NgJhipsterModule } from 'ng-jhipster';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import 'hammerjs';
 
 import { AuthInterceptor } from './blocks/interceptor/auth.interceptor';
 import { AuthExpiredInterceptor } from './blocks/interceptor/auth-expired.interceptor';
@@ -17,12 +20,12 @@ import { MoviemanagerAppRoutingModule } from './app-routing.module';
 import { MoviemanagerHomeModule } from './home/home.module';
 import { MoviemanagerAccountModule } from './account/account.module';
 import { MoviemanagerEntityModule } from './entities/entity.module';
+
 import * as moment from 'moment';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import 'hammerjs';
+
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ErrorComponent } from './layouts';
+import { MovieTrailerVideoDialogComponent } from './layouts/movie-trailer-video-dialog/movie-trailer-video-dialog.component';
 
 @NgModule({
   imports: [
@@ -43,7 +46,7 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
     MoviemanagerEntityModule,
     MoviemanagerAppRoutingModule
   ],
-  declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent],
+  declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent, MovieTrailerVideoDialogComponent],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
@@ -66,6 +69,7 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
       multi: true
     }
   ],
+  entryComponents: [MovieTrailerVideoDialogComponent],
   bootstrap: [JhiMainComponent]
 })
 export class MoviemanagerAppModule {

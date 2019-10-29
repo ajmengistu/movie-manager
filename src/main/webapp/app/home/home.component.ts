@@ -4,6 +4,8 @@ import { JhiEventManager } from 'ng-jhipster';
 
 import { LoginModalService, AccountService, Account } from 'app/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { MatDialog } from '@angular/material/dialog';
+import { MovieTrailerVideoDialogComponent } from 'app/layouts/movie-trailer-video-dialog/movie-trailer-video-dialog.component';
 
 @Component({
   selector: 'jhi-home',
@@ -24,7 +26,8 @@ export class HomeComponent implements OnInit {
     private accountService: AccountService,
     private loginModalService: LoginModalService,
     private eventManager: JhiEventManager,
-    breakpointObserver: BreakpointObserver
+    breakpointObserver: BreakpointObserver,
+    public dialog: MatDialog
   ) {
     breakpointObserver
       .observe([Breakpoints.XSmall, Breakpoints.Small, Breakpoints.Medium, Breakpoints.Large, Breakpoints.XLarge])
@@ -64,6 +67,16 @@ export class HomeComponent implements OnInit {
         }
       });
   }
+
+  openDialog() {
+    this.dialog.open(MovieTrailerVideoDialogComponent, {
+      width: '90%',
+      height: '95%',
+      autoFocus: false,
+      panelClass: 'no-dialog'
+    });
+  }
+
   openSideNav() {
     this.hasBackdrop = true;
     this.opened = true;
