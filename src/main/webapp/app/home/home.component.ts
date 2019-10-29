@@ -6,6 +6,7 @@ import { LoginModalService, AccountService, Account } from 'app/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { MatDialog } from '@angular/material/dialog';
 import { MovieTrailerVideoDialogComponent } from 'app/layouts/movie-trailer-video-dialog/movie-trailer-video-dialog.component';
+import { MoviesService } from '../core/api/themovie-db/movies.service';
 
 @Component({
   selector: 'jhi-home',
@@ -15,6 +16,8 @@ import { MovieTrailerVideoDialogComponent } from 'app/layouts/movie-trailer-vide
 export class HomeComponent implements OnInit {
   account: Account;
   modalRef: NgbModalRef;
+  popularMovies;
+
   rowHeight = '1.5:2';
   cols = 8;
   opened = true;
@@ -27,7 +30,8 @@ export class HomeComponent implements OnInit {
     private loginModalService: LoginModalService,
     private eventManager: JhiEventManager,
     breakpointObserver: BreakpointObserver,
-    public dialog: MatDialog
+    private dialog: MatDialog,
+    private moviesService: MoviesService
   ) {
     breakpointObserver
       .observe([Breakpoints.XSmall, Breakpoints.Small, Breakpoints.Medium, Breakpoints.Large, Breakpoints.XLarge])
@@ -92,6 +96,10 @@ export class HomeComponent implements OnInit {
       this.account = account;
     });
     this.registerAuthenticationSuccess();
+    this.moviesService.getPopularMovies().subscribe(movies => {
+      this.popularMovies = movies;
+      console.log(this.popularMovies);
+    });
   }
 
   registerAuthenticationSuccess() {
