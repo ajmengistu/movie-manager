@@ -73,7 +73,7 @@ export class HomeComponent implements OnInit {
       width: '90%',
       height: '95%',
       autoFocus: false,
-      panelClass: 'no-dialog'
+      panelClass: 'remove-dialog-container'
     });
   }
 
