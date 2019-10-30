@@ -72,12 +72,21 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  openDialog() {
-    this.dialog.open(MovieTrailerVideoDialogComponent, {
-      width: '90%',
-      height: '95%',
-      autoFocus: false,
-      panelClass: 'remove-dialog-container'
+  // Open Movie video trailer dialog
+  openDialog(movieId: number) {
+    this.moviesService.getVideos(movieId).subscribe(videos => {
+      // From the list of videos for movieId, find the trailer video on YouTube
+      const video = videos.results.find(element => {
+        return element.site === 'YouTube' && element.type === 'Trailer';
+      });
+      // Show the video trailer in the pop-up dialog
+      this.dialog.open(MovieTrailerVideoDialogComponent, {
+        width: '90%',
+        height: '95%',
+        autoFocus: false,
+        panelClass: 'remove-dialog-container',
+        data: { videoId: video.key }
+      });
     });
   }
 
@@ -98,7 +107,6 @@ export class HomeComponent implements OnInit {
     this.registerAuthenticationSuccess();
     this.moviesService.getPopularMovies().subscribe(result => {
       this.popularMovies = result.results;
-      console.log(this.popularMovies);
     });
   }
 

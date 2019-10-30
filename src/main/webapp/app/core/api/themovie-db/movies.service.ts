@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { API_KEY } from 'app/app.constants';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -8,7 +9,6 @@ const httpOptions = {
   })
 };
 
-const api_key = '999d13b30038bd8383d33e0762ca232b';
 const language = 'en-US';
 
 @Injectable({
@@ -21,8 +21,12 @@ export class MoviesService {
 
   getPopularMovies(): Observable<any> {
     const page = 1;
-    const url = `${this.themoviedbUrl}/movie/popular?api_key=${api_key}&language=${language}&page=${page}`;
-    console.log(url);
+    const url = `${this.themoviedbUrl}/movie/popular?api_key=${API_KEY}&language=${language}&page=${page}`;
+    return this.http.get(url);
+  }
+
+  getVideos(movie_id: number): Observable<any> {
+    const url = `${this.themoviedbUrl}/movie/${movie_id}/videos?api_key=${API_KEY}&language=${language}`;
     return this.http.get(url);
   }
 }
