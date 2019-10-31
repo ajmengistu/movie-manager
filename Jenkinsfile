@@ -6,11 +6,11 @@ node {
     }
 
     //docker.image('jhipster/jhipster:v6.4.1').inside('-u jhipster -e MAVEN_OPTS="-Duser.home=./"') {
-    stages {
+    // stages {
         stage('check java') {
             sh "java -version"
         }
-
+        
         stage('clean') {
             sh "chmod +x mvnw"
             sh "./mvnw -ntp clean"
@@ -48,5 +48,5 @@ node {
             sh "./mvnw -ntp verify -Pprod -DskipTests"
             archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
         }
-    }
+    //}
 }
