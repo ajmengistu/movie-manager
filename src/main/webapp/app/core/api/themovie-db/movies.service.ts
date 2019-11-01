@@ -15,7 +15,7 @@ const language = 'en-US';
   providedIn: 'root'
 })
 export class MoviesService {
-  private themoviedbUrl: string = 'https://api.themoviedb.org/3';
+  private themoviedbUrl = 'https://api.themoviedb.org/3';
 
   constructor(private http: HttpClient) {}
 
